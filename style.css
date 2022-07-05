@@ -1,0 +1,66 @@
+*{
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+}
+.table{
+    border-radius: 5px;
+    background-color: #000;
+    width: fit-content;
+    padding: 25px 15px;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: .8fr 1fr 1fr 1fr;
+    grid-template-areas: "D D D D"
+                         "b b b o"
+                         "b b b o"
+                         "b b b o";
+    row-gap: 10px;
+}
+.btn{
+    width: 50px; height: 50px;
+    display: flex;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(100, 100, 100);
+    margin: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 700;
+}
+.display{
+    grid-area: D;
+    border-radius: 5px;
+    border-bottom: 1px solid #999;
+    border-right: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: 700;
+    color: #fff;
+}
+.buttons{
+    grid-area: b;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+}
+.operadores{
+    grid-area: o;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+#res{
+    background-color: green;
+}
