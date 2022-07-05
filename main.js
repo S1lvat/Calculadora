@@ -14,7 +14,7 @@ function calcular() {
         let numero1 = num1.join('')
         let numero2 = num2.join('')
         const resultado =
-            eval(`${parseFloat(numero1)}${op}${parseFloat(numero2)}`)
+            eval(`${parseInt(numero1)}${op}${parseInt(numero2)}`)
         novoCalculo = true
         num1 = new Array()
         num1.push(resultado)
@@ -49,6 +49,20 @@ function inserirNum(e) {
     atualizarTela(e.target.textContent)
 }
 
+function retirarNum() {
+
+    if (!novoNumero) {
+        num1.pop()
+        novoCalculo = true
+        atualizarTela(num1.join(''))
+    } else {
+        num2.pop()
+        novoCalculo = true
+        atualizarTela(`${num1.join('')} ${op} ${num2.join('')}`)
+    }
+
+}
+
 function selecionarOp(e) {
     if (num1.length !== 0) {
         if (!novoNumero) {
@@ -81,5 +95,6 @@ btns.forEach(num => num.addEventListener('click', inserirNum))
 
 operadores.forEach(operador => operador.addEventListener('click', selecionarOp))
 
+document.getElementById('eraser').addEventListener('click', retirarNum)
 document.getElementById('res').addEventListener('click', calcular)
 document.getElementById('clean').addEventListener('click', clean)
