@@ -5,6 +5,7 @@ var display = document.querySelector("#display")
 let inicial = true;
 let novoNumero = false;
 let novoCalculo = false;
+let afterCalc = false
 let op;
 let num1 = [];
 let num2 = [];
@@ -19,6 +20,7 @@ function calcular() {
         num1 = new Array()
         num1.push(resultado)
         num2 = []
+        afterCalc = true
         atualizarTela(resultado === NaN ? 0 : resultado)
     }
 }
@@ -40,7 +42,7 @@ function atualizarTela(e) {
 
 function inserirNum(e) {
 
-    if (!novoNumero) {
+    if (!novoNumero || afterCalc) {
         num1.push(e.target.textContent)
     } else {
         num2.push(e.target.textContent)
@@ -51,7 +53,7 @@ function inserirNum(e) {
 
 function retirarNum() {
 
-    if (!novoNumero) {
+    if (!novoNumero || afterCalc) {
         num1.pop()
         novoCalculo = true
         atualizarTela(num1.join(''))
@@ -79,6 +81,7 @@ function selecionarOp(e) {
         calcular()
         atualizarTela(` ${op} `)
     }
+    afterCalc = false
 }
 
 function clean() {
