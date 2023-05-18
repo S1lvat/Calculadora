@@ -54,6 +54,9 @@ function inserirNum(e) {
 function retirarNum() {
 
     if (!novoNumero || afterCalc) {
+        num1 = num1.join('')
+        num1 = num1.split('')
+        console.log(num1)
         num1.pop()
         novoCalculo = true
         atualizarTela(num1.join(''))
